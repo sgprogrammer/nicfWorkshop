@@ -6,6 +6,8 @@
 package workshop02.model;
 
 import java.util.List;
+import javax.json.Json;
+import javax.json.JsonObject;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
@@ -139,12 +141,12 @@ public class Customer {
         this.creditLimit = creditLimit;
     }
 
-    public DiscountCode getDiscoutCode() {
+    public DiscountCode getDiscountCode() {
         return discountCode;
     }
 
     public void setDiscoutCode(DiscountCode discoutCode) {
-        this.discountCode = discoutCode;
+        this.discountCode = discountCode;
     }
 
     public List<PurchaseOrder> getPurchaseOrders() {
@@ -154,5 +156,21 @@ public class Customer {
     public void setPurchaseOrders(List<PurchaseOrder> purchaseOrders) {
         this.purchaseOrders = purchaseOrders;
     } 
-
+    
+    public JsonObject toJson(){
+        return (Json.createObjectBuilder()
+                .add("customerId", customerId)
+                .add("name", name)
+                .add("addressline1", addressline1)
+                .add("addressline2", addressline2)
+                .add("city", city)
+                .add("state", state)
+                .add("zip", zip)
+                .add("phone", phone)
+                .add("fax", fax)
+                .add("email", email)
+                .add("discountCode", discountCode.getDiscountCode().toString())
+                .add("creditLimit", creditLimit)
+                .build());
+                }
 }
