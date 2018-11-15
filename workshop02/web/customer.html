@@ -5,68 +5,225 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
+
     <head>
+
         <title>TODO supply a title</title>
+
         <meta charset="UTF-8">
+
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     </head>
+
     <body>
-        <h1>Customer</h1>
+
+        <h1>CustomerX Query</h1>
+
+
+
         <form method="GET" action="customer">
-            Customer Id: 
-            <input type="number" name="customerid" min="0"
-                   placeholder="Please enter the customer ID to search">
-            <button type="submit">Search</button>
-        
+
+            Customer Id:
+
+            <input type="number" name="customerId" 
+
+                   placeholder="Please enter the customer id to search">
+
+            <button type="submit">Search</button>            
+
+        </form>
+
+
+
+        <hr>
+
+
+
+        <h1>Create New Customer</h1>
+
+
+
+        <form method="POST" action="customer">
+
+
+
             <table>
+
                 <tr>
-                    <td>CustomerId</td>
+
+                    <td>Customer Id</td>
+
                     <td>
+
                         <input type="number" name="customerId">
+
                     </td>
+
                 </tr>
-                
+
+               <tr>
+
+                    <td>Name</td>
+
+                    <td>
+
+                        <input type="text" name="name">
+
+                    </td>
+
+                </tr>                
+
                 <tr>
+
                     <td>Address 1</td>
+
                     <td>
+
                         <input type="text" name="addressline1">
+
                     </td>
+
                 </tr>
+
                 <tr>
+
                     <td>Address 2</td>
+
                     <td>
+
                         <input type="text" name="addressline2">
+
                     </td>
-                </tr>
-                
+
+                </tr>  
+
                 <tr>
+
                     <td>City</td>
+
                     <td>
+
                         <input type="text" name="city">
+
                     </td>
-                </tr>
-                
+
+                </tr>    
+
                 <tr>
-                    <td>DiscountCode</td>
+
+                    <td>State - 2 character</td>
+
                     <td>
+
+                        <input type="text" name="state">
+
+                    </td>
+
+                </tr>     
+
+                <tr>
+
+                    <td>ZIP</td>
+
+                    <td>
+
+                        <input type="text" name="zip">
+
+                    </td>
+
+                </tr> 
+
+                <tr>
+
+                    <td>Phone</td>
+
+                    <td>
+
+                        <input type="text" name="phone">
+
+                    </td>
+
+                </tr>           
+
+                <tr>
+
+                    <td>Fax</td>
+
+                    <td>
+
+                        <input type="text" name="fax">
+
+                    </td>
+
+                </tr>
+
+                <tr>
+
+                    <td>Email</td>
+
+                    <td>
+
+                        <input type="email" name="email">
+
+                    </td>
+
+                </tr>      
+
+                <tr>
+
+                    <td>Discount Code</td>
+
+                    <td>
+
                         <select name="discountCode">
-                        <option value="H">H</option>
-                        <option value="M">M</option>
-                        <option value="L">L</option>
-                        <option value="N">N</option>
+
+                            <option value="H">H</option>
+
+                            <option value="M">M</option>
+
+                            <option value="L">L</option>
+
+                            <option value="N">N</option>
+
                         </select>
-                    </td>    
-                </tr>
-                <tr>
-                    <td>Credit Limit</td>
-                    <td>
-                        <input type="number" name="creditLimit">  
+
                     </td>
+
+                </tr>   
+
+                <tr>
+
+                    <td>Credit Limit</td>
+
+                    <td>
+
+                        <input type="number" name="creditLimit">
+
+                    </td>
+
+                </tr> 
+
+                <tr>
+
+                    <td></td>
+
+                    <td>
+
+                        <button type="submit">Add</button>
+
+                    </td>
+
                 </tr>
+
             </table>
-        
-        
-        </form>    
-        
+
+
+
+        </form>
+
+
+
     </body>
+
 </html>

@@ -12,13 +12,13 @@ import javax.persistence.Table;
 @Entity
 @Table(name="discount_code")
 public class DiscountCode {
-    
+
     public enum Code { H, L, M, N }
-    
+
     @Id @Column(name="discount_code")
     @Enumerated(EnumType.STRING)
+
     private Code discountCode;
-    
     private Float rate;
     
     @OneToMany(mappedBy = "discountCode")
@@ -27,21 +27,33 @@ public class DiscountCode {
     public Code getDiscountCode() {
         return discountCode;
     }
+
     public void setDiscountCode(Code discountCode) {
         this.discountCode = discountCode;
     }
 
+
+
     public Float getRate() {
         return rate;
     }
+
     public void setRate(Float rate) {
         this.rate = rate;
     }
 
+
     public List<Customer> getCustomers() {
         return customers;
     }
+
     public void setCustomers(List<Customer> customers) {
         this.customers = customers;
     }
+
+
+    @Override
+    public String toString() {
+        return "DiscountCode{" + "discountCode=" + discountCode + ", rate=" + rate + ", customers=" + customers + '}';
+    }  
 }

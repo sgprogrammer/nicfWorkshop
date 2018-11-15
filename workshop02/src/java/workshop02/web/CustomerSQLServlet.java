@@ -19,12 +19,16 @@ import javax.servlet.http.HttpServletResponse;
 import javax.sql.DataSource;
 import javax.ws.rs.core.MediaType;
 
+
 @WebServlet(urlPatterns = {"/customer-sql"})
 public class CustomerSQLServlet extends HttpServlet {
+
+
 
     //Get a reference to the SamplePool jdbc/sample
     @Resource(lookup = "jdbc/sample")
     private DataSource sampleDS;
+
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -32,18 +36,23 @@ public class CustomerSQLServlet extends HttpServlet {
         //Read the custId form field
         Integer custId = Integer.parseInt(req.getParameter("custId"));
 
-        //Get a Connection
-        try (Connection conn = sampleDS.getConnection()) {
 
+        //Get a Connection
+
+        try (Connection conn = sampleDS.getConnection()) {
             //Create a PreparedStatement
             PreparedStatement ps = conn.prepareStatement(
                     "select * from customer where customer_id = ?");
             //Set the parameter
             ps.setInt(1, custId);
+
             //Execute the query
+
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
-                //found a record
+
+                //We found a record
+
                 resp.setStatus(HttpServletResponse.SC_OK);
                 resp.setContentType(MediaType.TEXT_PLAIN);
                 try (PrintWriter pw = resp.getWriter()) {
@@ -61,6 +70,8 @@ public class CustomerSQLServlet extends HttpServlet {
                 }
             }
 
+
+
         } catch (SQLException ex) {
             log(ex.getMessage());
             resp.setStatus(HttpServletResponse.SC_INTERNAL_SERVER_ERROR);
@@ -70,5 +81,6 @@ public class CustomerSQLServlet extends HttpServlet {
             }
         }
     }
+
 
 }
