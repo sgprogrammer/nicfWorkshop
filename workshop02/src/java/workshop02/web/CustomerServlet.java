@@ -44,8 +44,6 @@ public class CustomerServlet extends HttpServlet {
 
     }
 
-
-
     // GET /workshop02/customer
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
