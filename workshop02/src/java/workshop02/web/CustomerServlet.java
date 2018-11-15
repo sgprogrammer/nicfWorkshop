@@ -47,59 +47,35 @@ public class CustomerServlet extends HttpServlet {
 
 
     // GET /workshop02/customer
-
     @Override
-
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) 
-
             throws ServletException, IOException {
-
         
-
         Integer customerId = Integer.parseInt(req.getParameter("customerId"));
-
-        
-
+       
         //We get an optional object which indicate that the object may 
-
         //may not exists
 
         Optional<Customer> opt = customerBean.findByCustomerId(customerId);
 
         //Check if we have a result
-
         if (!opt.isPresent()) {
-
             resp.setStatus(HttpServletResponse.SC_NOT_FOUND);
-
             resp.setContentType("text/plain");
-
             try (PrintWriter pw = resp.getWriter()) {
-
                 pw.printf("Customer id %d does not exists\n", customerId);                
-
             }
-
             return;
-
         }
 
         //Get the result
-
         Customer customer = opt.get();
-
-        
-
+     
         resp.setStatus(HttpServletResponse.SC_OK);
-
         resp.setContentType("application/json");
-
         try (PrintWriter pw = resp.getWriter()) {
-
             pw.print(customer.toJson());
-
         }
-
     }
 
     

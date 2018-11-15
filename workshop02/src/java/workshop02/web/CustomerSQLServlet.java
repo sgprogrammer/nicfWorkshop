@@ -23,12 +23,9 @@ import javax.ws.rs.core.MediaType;
 @WebServlet(urlPatterns = {"/customer-sql"})
 public class CustomerSQLServlet extends HttpServlet {
 
-
-
     //Get a reference to the SamplePool jdbc/sample
     @Resource(lookup = "jdbc/sample")
     private DataSource sampleDS;
-
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp)
@@ -47,12 +44,10 @@ public class CustomerSQLServlet extends HttpServlet {
             ps.setInt(1, custId);
 
             //Execute the query
-
             ResultSet rs = ps.executeQuery();
             if (rs.next()) {
 
                 //We found a record
-
                 resp.setStatus(HttpServletResponse.SC_OK);
                 resp.setContentType(MediaType.TEXT_PLAIN);
                 try (PrintWriter pw = resp.getWriter()) {
