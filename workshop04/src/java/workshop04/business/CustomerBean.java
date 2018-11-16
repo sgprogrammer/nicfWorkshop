@@ -47,7 +47,7 @@ public class CustomerBean {
         
             Customer customer = new Customer();
             customer.setCustomerId(rs.getInt("customer_id"));
-            customer.setName("name");
+            customer.setName(rs.getString("name"));
             customer.setAddressline1(rs.getString("addressline1"));
             customer.setAddressline2(rs.getString("addressline2"));
             customer.setCity(rs.getString("city"));
